@@ -1,0 +1,130 @@
+/* Dark Mode Styles */
+body {
+    background-color: #121212;
+    color: #e0e0e0;
+}
+
+header {
+    background-color: #1e1e1e;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.desktop-nav a {
+    color: #e0e0e0;
+}
+
+.desktop-nav a:hover {
+    color: var(--primary-color);
+}
+
+.profile-dropdown {
+    background-color: #1e1e1e;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+}
+
+.profile-dropdown a:hover {
+    background-color: #2d2d2d;
+}
+
+.dashboard-card, 
+.progress-section, 
+.tips-section,
+.trading-table-container,
+.trading-notes,
+.profile-form,
+.profile-stats,
+.contact-info,
+.contact-form-container,
+.faq-section,
+.about-section,
+.mission-card,
+.team-member {
+    background-color: #1e1e1e;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+.card-content p,
+.stat-content p,
+.summary-item strong {
+    color: #ffffff;
+}
+
+.trading-table th {
+    background-color: #2d2d2d;
+    color: #b0b0b0;
+}
+
+.trading-table tr:hover {
+    background-color: rgba(67, 97, 238, 0.1);
+}
+
+.form-group input,
+.trading-table select,
+.trading-notes textarea,
+#contact-form textarea {
+    background-color: #2d2d2d;
+    border-color: #3d3d3d;
+    color: #e0e0e0;
+}
+
+.form-group input:focus,
+.trading-table select:focus {
+    box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.3);
+}
+
+.amount-option, 
+.percentage-option,
+.action-btn {
+    background-color: #2d2d2d;
+    color: #e0e0e0;
+}
+
+.action-btn:hover {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.btn.secondary-btn {
+    background-color: #2d2d2d;
+    color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.btn.secondary-btn:hover {
+    background-color: #3d3d3d;
+}
+
+.mission-card,
+.team-member {
+    background-color: #2d2d2d;
+}
+
+.social-icon {
+    background-color: #2d2d2d;
+    color: #e0e0e0;
+}
+
+.social-icon:hover {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.faq-question {
+    color: #e0e0e0;
+    background: none;
+}
+
+.tip-card i {
+    color: var(--primary-color);
+}
+
+.strategy-points li::before {
+    background-color: var(--primary-color);
+}
+
+.notification {
+    background-color: var(--primary-color);
+    color: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
