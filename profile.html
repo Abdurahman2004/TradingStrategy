@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile - 30-Day Trading Strategy</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/dark-mode.css" id="dark-mode-style" disabled>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+   <link rel="manifest" href="/manifest.json">
+<script>
+  // Register Service Worker
+  if ("serviceWorker" in navigator) {
+    navigator.serviceWorker.register("/sw.js");
+  }
+</script> 
+</head>
+<body>
+    <header>
+        <div class="logo">30-Day Trading</div>
+        <nav class="desktop-nav">
+            <ul>
+                <li><a href="home.html"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="trading.html"><i class="fas fa-chart-line"></i> Trading</a></li>
+                <li><a href="profile.html" class="active"><i class="fas fa-user"></i> Profile</a></li>
+                <li><a href="contact.html"><i class="fas fa-envelope"></i> Contact</a></li>
+                <li><a href="about.html"><i class="fas fa-info-circle"></i> About</a></li>
+            </ul>
+        </nav>
+        <div class="header-right">
+            <button id="dark-mode-toggle" class="icon-btn"><i class="fas fa-moon"></i></button>
+            <div class="profile-menu">
+                <img id="profile-img-nav" src="" alt="Profile" class="profile-img">
+                <div class="profile-dropdown">
+                    <a href="home.html"><i class="fas fa-home"></i> Home</a>
+                    <a href="trading.html"><i class="fas fa-chart-line"></i> Trading</a>
+                    <a href="profile.html"><i class="fas fa-user"></i> Profile</a>
+                    <a href="contact.html"><i class="fas fa-envelope"></i> Contact</a>
+                    <a href="about.html"><i class="fas fa-info-circle"></i> About</a>
+                    <a href="#" id="logout-btn"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                </div>
+            </div>
+        </div>
+      </header>
+
+    <main class="profile-main">
+        <div class="profile-header">
+            <h1>Your Profile</h1>
+            <p>Update your personal information and settings</p>
+        </div>
+
+        <div class="profile-container">
+            <div class="profile-image-section">
+                <div class="profile-image-container">
+                    <img id="profile-image-preview" src="" alt="Profile Image">
+                    <div class="profile-image-overlay">
+                        <button id="change-image-btn"><i class="fas fa-camera"></i></button>
+                    </div>
+                </div>
+                <input type="file" id="profile-image-upload" accept="image/*" style="display: none;">
+                <div class="image-actions">
+                    <button class="btn secondary-btn" id="remove-image-btn">
+                        <i class="fas fa-trash"></i> Remove
+                    </button>
+                </div>
+            </div>
+
+            <div class="profile-form">
+                <div class="form-group">
+                    <label for="profile-name">Full Name</label>
+                    <input type="text" id="profile-name" placeholder="Enter your name">
+                </div>
+
+                <div class="form-group">
+                    <label for="profile-email">Email Address</label>
+                    <input type="email" id="profile-email" placeholder="Enter your email">
+                </div>
+
+                <div class="form-group">
+                    <label for="profile-initial-amount">Initial Amount ($)</label>
+                    <input type="number" id="profile-initial-amount" placeholder="Enter initial amount">
+                </div>
+
+                <div class="form-group">
+                    <label for="profile-percentage">Daily Profit Percentage (%)</label>
+                    <input type="number" id="profile-percentage" placeholder="Enter percentage">
+                </div>
+
+                <div class="form-group">
+                    <label for="profile-password">Change Password</label>
+                    <input type="password" id="profile-password" placeholder="Enter new password">
+                </div>
+
+                <div class="form-group">
+                    <label for="profile-confirm-password">Confirm Password</label>
+                    <input type="password" id="profile-confirm-password" placeholder="Confirm new password">
+                </div>
+
+                <div class="form-actions">
+                    <button class="btn" id="save-profile-btn">
+                        <i class="fas fa-save"></i> Save Changes
+                    </button>
+                    <button class="btn secondary-btn" id="cancel-changes-btn">
+                        <i class="fas fa-times"></i> Cancel
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="profile-stats">
+            <h3>Your Trading Statistics</h3>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-calendar-alt"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h4>Days Completed</h4>
+                        <p id="stat-days-completed">0</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-percentage"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h4>Success Rate</h4>
+                        <p id="stat-success-rate">0%</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-coins"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h4>Total Profit</h4>
+                        <p id="stat-total-profit">$0</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-piggy-bank"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h4>Total Savings</h4>
+                        <p id="stat-total-savings">$0</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div class="image-modal" id="image-modal">
+        <div class="image-modal-content">
+            <span class="close-modal">&times;</span>
+            <img id="modal-image" src="" alt="Full size profile image">
+        </div>
+    </div>
+
+    <div class="notification" id="notification"></div>
+<!-- Add this to your profile.html file -->
+<script>
+// Profile Update Handler
+document.getElementById('updateProfileBtn').addEventListener('click', function() {
+    // Get form values
+    const name = document.getElementById('profileName').value;
+    const amount = parseFloat(document.getElementById('profileAmount').value);
+    const percentage = parseFloat(document.getElementById('profilePercentage').value);
+    
+    // Validate inputs
+    if (!name || isNaN(amount) || isNaN(percentage)) {
+        alert('Please fill all fields correctly');
+        return;
+    }
+
+    // Get existing data
+    let userData = JSON.parse(localStorage.getItem('userData')) || {};
+    
+    // Only regenerate plan if amount or percentage changed
+    const amountChanged = userData.initialAmount !== amount;
+    const percentageChanged = userData.dailyPercentage !== percentage;
+    
+    // Update profile data
+    userData.name = name;
+    userData.initialAmount = amount;
+    userData.dailyPercentage = percentage;
+    
+    // Regenerate trading plan if needed
+    if (amountChanged || percentageChanged) {
+        userData.tradingPlan = generateTradingPlan(amount, percentage);
+    }
+    
+    // Save to localStorage
+    localStorage.setItem('userData', JSON.stringify(userData));
+    
+    // Show success message
+    alert('Profile updated successfully! Trading plan recalculated.');
+    
+    // Redirect back to trading page
+    window.location.href = 'trading.html';
+});
+
+// Trading Plan Generator
+function generateTradingPlan(initialAmount, dailyPercentage) {
+    const plan = [];
+    let currentBalance = initialAmount;
+    const percentage = dailyPercentage / 100;
+    
+    for (let day = 1; day <= 30; day++) {
+        const profitToBeMade = currentBalance * percentage;
+        const expectedBalance = currentBalance + profitToBeMade;
+        const savingBalance = profitToBeMade * 0.5;
+        
+        plan.push({
+            day,
+            balance: currentBalance,
+            profitToBeMade,
+            expectedBalance,
+            lostMoney: 0,
+            savingBalance,
+            achieved: true
+        });
+        
+        // Update balance for next day (50% reinvestment)
+        currentBalance = currentBalance + (profitToBeMade * 0.5);
+    }
+    
+    return plan;
+}
+</script>
+    <script src="js/app.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            loadUserData();
+            setupProfilePage();
+        });
+    </script>
+</body>
+</html>

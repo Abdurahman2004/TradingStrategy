@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Contact Us - 30-Day Trading Strategy</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/dark-mode.css" id="dark-mode-style" disabled>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="manifest" href="/manifest.json">
+<script>
+  // Register Service Worker
+  if ("serviceWorker" in navigator) {
+    navigator.serviceWorker.register("/sw.js");
+  }
+</script>
+</head>
+<body>
+    <header>
+        <div class="logo">30-Day Trading</div>
+        <nav class="desktop-nav">
+            <ul>
+                <li><a href="home.html"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="trading.html"><i class="fas fa-chart-line"></i> Trading</a></li>
+                <li><a href="profile.html"><i class="fas fa-user"></i> Profile</a></li>
+                <li><a href="contact.html" class="active"><i class="fas fa-envelope"></i> Contact</a></li>
+                <li><a href="about.html"><i class="fas fa-info-circle"></i> About</a></li>
+            </ul>
+        </nav>
+        <div class="header-right">
+            <button id="dark-mode-toggle" class="icon-btn"><i class="fas fa-moon"></i></button>
+            <div class="profile-menu">
+                <img id="profile-img-nav" src="" alt="Profile" class="profile-img">
+                <div class="profile-dropdown">
+                    <a href="home.html"><i class="fas fa-home"></i> Home</a>
+                    <a href="trading.html"><i class="fas fa-chart-line"></i> Trading</a>
+                    <a href="profile.html"><i class="fas fa-user"></i> Profile</a>
+                    <a href="contact.html"><i class="fas fa-envelope"></i> Contact</a>
+                    <a href="about.html"><i class="fas fa-info-circle"></i> About</a>
+                    <a href="#" id="logout-btn"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                </div>
+            </div>
+        </div>
+      </header>
+
+    <main class="contact-main">
+        <div class="contact-header">
+            <h1>Contact Us</h1>
+            <p>Have questions or feedback? We'd love to hear from you!</p>
+        </div>
+
+        <div class="contact-container">
+            <div class="contact-info">
+                <div class="info-card">
+                    <div class="info-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div class="info-content">
+                        <h3>Email Us</h3>
+                        <p>support@30daytrading.com</p>
+                    </div>
+                </div>
+                <div class="info-card">
+                    <div class="info-icon">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <div class="info-content">
+                        <h3>Call Us</h3>
+                        <p>+1 (555) 123-4567</p>
+                    </div>
+                </div>
+                <div class="info-card">
+                    <div class="info-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <div class="info-content">
+                        <h3>Visit Us</h3>
+                        <p>123 Trading Street, Finance City, FC 12345</p>
+                    </div>
+                </div>
+                <div class="contact-social">
+                    <h3>Connect With Us</h3>
+                    <div class="social-icons">
+                        <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact-form-container">
+                <form id="contact-form">
+                    <div class="form-group">
+                        <label for="contact-name">Your Name</label>
+                        <input type="text" id="contact-name" placeholder="Enter your name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="contact-email">Your Email</label>
+                        <input type="email" id="contact-email" placeholder="Enter your email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="contact-subject">Subject</label>
+                        <input type="text" id="contact-subject" placeholder="Enter subject" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="contact-message">Your Message</label>
+                        <textarea id="contact-message" rows="5" placeholder="Enter your message" required></textarea>
+                    </div>
+                    <button type="submit" class="btn submit-btn">
+                        <i class="fas fa-paper-plane"></i> Send Message
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        <div class="faq-section">
+            <h2>Frequently Asked Questions</h2>
+            <div class="faq-item">
+                <button class="faq-question">How does the 30-day trading strategy work?</button>
+                <div class="faq-answer">
+                    <p>The 30-day trading strategy is a systematic approach to growing your investment by a set percentage each day while protecting your capital through savings. The plan calculates your expected profits and savings based on your initial investment and chosen daily percentage.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">Can I change my initial amount or percentage later?</button>
+                <div class="faq-answer">
+                    <p>Yes, you can update your initial amount and daily percentage at any time from your profile page. However, changing these values will reset your trading plan.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">How are savings calculated?</button>
+                <div class="faq-answer">
+                    <p>Savings are calculated as 50% of your daily profit minus any lost money for that day. This helps protect your capital by setting aside a portion of your profits.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">What happens if I mark a day as not achieved?</button>
+                <div class="faq-answer">
+                    <p>If you mark a day as not achieved, that day's profit won't be added to your balance, and the subsequent days will be recalculated based on your current balance.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div class="notification" id="notification"></div>
+
+    <script src="js/app.js"></script>
+    <script src="js/form.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            loadUserData();
+            setupFAQ();
+        });
+    </script>
+</body>
+</html>

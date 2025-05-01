@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trading Plan - 30-Day Trading Strategy</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/dark-mode.css" id="dark-mode-style" disabled>
+    <link rel="manifest" href="/manifest.json">
+<script>
+  // Register Service Worker
+  if ("serviceWorker" in navigator) {
+    navigator.serviceWorker.register("/sw.js");
+  }
+</script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+</head>
+<body>
+    <header>
+        <div class="logo">30-Day Trading</div>
+        <nav class="desktop-nav">
+            <ul>
+                <li><a href="home.html"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="trading.html" class="active"><i class="fas fa-chart-line"></i> Trading</a></li>
+                <li><a href="profile.html"><i class="fas fa-user"></i> Profile</a></li>
+                <li><a href="contact.html"><i class="fas fa-envelope"></i> Contact</a></li>
+                <li><a href="about.html"><i class="fas fa-info-circle"></i> About</a></li>
+            </ul>
+        </nav>
+        <div class="header-right">
+            <button id="dark-mode-toggle" class="icon-btn"><i class="fas fa-moon"></i></button>
+            <div class="profile-menu">
+                <img id="profile-img-nav" src="" alt="Profile" class="profile-img">
+                <div class="profile-dropdown">
+                    <a href="home.html"><i class="fas fa-home"></i> Home</a>
+                    <a href="trading.html"><i class="fas fa-chart-line"></i> Trading</a>
+                    <a href="profile.html"><i class="fas fa-user"></i> Profile</a>
+                    <a href="contact.html"><i class="fas fa-envelope"></i> Contact</a>
+                    <a href="about.html"><i class="fas fa-info-circle"></i> About</a>
+                    <a href="#" id="logout-btn"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                </div>
+            </div>
+        </div>
+       </header>
+
+    <main class="trading-main">
+        <div class="trading-header">
+            <h1>Your 30-Day Trading Plan</h1>
+            <div class="trading-summary">
+                <div class="summary-item">
+                    <span>Initial Amount:</span>
+                    <strong id="trading-initial-amount">$0</strong>
+                </div>
+                <div class="summary-item">
+                    <span>Daily Percentage:</span>
+                    <strong id="trading-percentage">0%</strong>
+                </div>
+                <button class="btn" id="recalculate-btn">Recalculate Plan</button>
+            </div>
+        </div>
+
+        <div class="trading-table-container">
+            <table class="trading-table">
+                <thead>
+                    <tr>
+                        <th>Day #</th>
+                        <th>Balance</th>
+                        <th>Profit to be Made</th>
+                        <th>Expected Balance</th>
+                        <th>Lost Money</th>
+                        <th>Saving Balance</th>
+                        <th>Achieved</th>
+                    </tr>
+                </thead>
+                <tbody id="trading-plan-body">
+                    <!-- Trading plan rows will be inserted here by JavaScript -->
+                </tbody>
+            </table>
+        </div>
+
+        <div class="trading-actions">
+            <button class="btn" id="save-plan-btn">
+                <i class="fas fa-save"></i> Save Plan
+            </button>
+            <button class="btn secondary-btn" id="reset-plan-btn">
+                <i class="fas fa-redo"></i> Reset Plan
+            </button>
+            <button class="btn secondary-btn" id="export-plan-btn">
+                <i class="fas fa-file-export"></i> Export to Excel
+            </button>
+        </div>
+
+        <div class="trading-notes">
+            <h3>Notes</h3>
+            <textarea id="trading-notes" placeholder="Add any notes about your trading plan here..."></textarea>
+            <button class="btn" id="save-notes-btn">Save Notes</button>
+        </div>
+    </main>
+
+    <div class="notification" id="notification"></div>
+
+    <script src="js/app.js"></script>
+    <script src="js/trading.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            loadUserData();
+            generateTradingPlan();
+        });
+    </script>
+    <script>
+// Trading Page Initialization
+document.addEventListener('DOMContentLoaded', function() {
+    // Load user data
+    const userData = JSON.parse(localStorage.getItem('userData'));
+    
+    if (!userData) {
+        window.location.href = 'index.html';
+        return;
+    }
+    
+    // Display current values
+    document.getElementById('initialAmountDisplay').textContent = '$' + userData.initialAmount.toFixed(2);
+    document.getElementById('dailyPercentageDisplay').textContent = userData.dailyPercentage + '%';
+    
+    // Render trading table
+    renderTradingTable(userData.tradingPlan);
+    
+    // Add storage listener for updates from profile page
+    window.addEventListener('storage', function(e) {
+        if (e.key === 'userData') {
+            const updatedData = JSON.parse(e.newValue);
+            renderTradingTable(updatedData.tradingPlan);
+            alert('Trading plan updated with new values!');
+        }
+    });
+});
+
+// Render Trading Table
+function renderTradingTable(plan) {
+    const tbody = document.getElementById('tradingTableBody');
+    tbody.innerHTML = '';
+    
+    plan.forEach(day => {
+        const row = document.createElement('tr');
+        row.innerHTML = `
+            <td>${day.day}</td>
+            <td>$${day.balance.toFixed(2)}</td>
+            <td>$${day.profitToBeMade.toFixed(2)}</td>
+            <td>$${day.expectedBalance.toFixed(2)}</td>
+        `;
+        tbody.appendChild(row);
+    });
+}
+</script>
+</body>
+</html>
