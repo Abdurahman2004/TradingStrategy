@@ -1,6 +1,9 @@
 {
+  "id": "/",
   "name": "Trading Strategy Pro",
-  "short_name": "TradingApp",
+  "short_name": "Trading App",
+  "lang": "en",
+  "dir": "ltr",
   "description": "Advanced stock trading analysis platform",
   "start_url": "/TradingStrategy/index.html",
   "scope": "/TradingStrategy/",
