@@ -7,14 +7,15 @@
     <title>30-Day Trading Strategy - Setup</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-   <link rel="manifest" href="/manifest.json">
+
+    <link rel="manifest" href="/TradingStrategy/manifest.json">
 <script>
-  // Register Service Worker
-  if ("serviceWorker" in navigator) {
-    navigator.serviceWorker.register("/sw.js");
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('/TradingStrategy/sw.js');
+    });
   }
-</script> 
-    
+</script>
 </head>
 <body>
     <div class="setup-container">
